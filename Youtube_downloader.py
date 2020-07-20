@@ -1,46 +1,19 @@
-from pytube import *
+from pytube import YouTube
+from pytube import Playlist
 
-yt = YouTube(str(input("Enter the video link: ")))
-videos = yt.streams.all()
+print("imports done")
 
-s = 1
-for v in videos:
-    print(str(s)+". "+str(v))
-    s += 1
+url = input("Enter the url of the video: ")
+print("Fetching video info....")
+ytd = YouTube(url)
 
-n = int(input("Enter the number of the video: "))
+#print(ytd)
+you = ytd.streams.all()
+for i in range(len(you)):
+    print(str(i)+". "+ str(you[i]))
+my_quality = int(input("Enter the quality of video you want to download: "))
+print("Downloading video...")
+destination = 'E:'
+ytd.streams[my_quality].download(destination)
+print(str(ytd.streams[my_quality].download()) + " downloaded successfully!!!")
 
-vid = videos[n-1]
-print ("downloading...!!!")
-destination = 'E:\\python\\Django videos\\'
-vid.download(destination)
-
-
-print("Video has been successfully downloaded")
-
-
-# import easygui
-
-# easygui.msgbox("Hey Gokul...!!!!Download completed", title="Notification")
-
-#########################
-
-# from pytube import *
-#
-# yt = YouTube(str(input("Enter the video link: ")))
-# videos = yt.captions
-# print (videos)
-# s = 1
-# for v in videos:
-#     print(str(s)+". "+str(v))
-#     s += 1
-#
-# #n = int(input("Enter the number of the video: "))
-# # n=1
-# # vid = videos[n-1]
-# # print ("downloading...!!!")
-# # destination = 'E:\\'
-# # vid.download(destination)
-#
-#
-# print("Video has been successfully downloaded")
