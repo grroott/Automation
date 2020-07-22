@@ -20,8 +20,8 @@ calendar_id = cal_result['items'][0]['id']
 
 eve_result = service.events().list(calendarId=calendar_id).execute()  # returns all events
 
-start_time = datetime.now() + timedelta (minutes = 2)
-end_time = datetime.now() + timedelta (minutes = 15)
+start_time = datetime.now() + timedelta (minutes = 15)
+end_time = datetime.now() + timedelta (minutes = 30)
 
 event = {
   'summary': 'test event',
